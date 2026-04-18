@@ -1,0 +1,35 @@
+# .github/workflows/chromatic.yml
+
+# 工作流的名称
+name: "Chromatic"
+
+# 触发条件：当代码被推送到仓库时执行
+on: push
+
+# 定义要执行的任务
+jobs:
+  chromatic:
+    name: Run Chromatic
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 拉取你的代码
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # 2. 设置 Node.js 环境
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24.13.0
+
+      # 3. 安装项目依赖 (使用 npm ci 比 npm install 更快更稳定)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. 运行 Chromatic 部署命令，并传入我们第一步设置好的密钥
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          # 这里引用的是第一步在 GitHub 设置的密钥
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
