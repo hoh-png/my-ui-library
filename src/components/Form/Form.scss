@@ -1,0 +1,19 @@
+.form {
+  width: 100%;
+}
+
+.form-item {
+  display: flex;
+  margin-bottom: 16px;
+  
+  &__label {
+    flex-shrink: 0;
+    padding-right: 12px;
+    line-height: 32px;
+    text-align: right;
+  }
+  
+  &__control {
+    flex: 1;
+  }
+}
