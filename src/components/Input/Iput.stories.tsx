@@ -7,9 +7,9 @@ const meta = {
   component: Input,
   tags: ['autodocs'],// 自动生成文档
   argTypes: {
-    prefix: { control: {type:'text'} },
-    suffix: { control: {type:'text'} },
-    value: { control: {type:'text'} },
+    prefix: { control: {type:'text'}, description: '前缀内容' },
+    suffix: { control: {type:'text'}, description: '后缀内容' },
+    value: { control: {type:'text'}, },
   },
 } satisfies Meta<typeof Input>;
 
