@@ -20,7 +20,7 @@ type Story = StoryObj<typeof Input>;
 
 export const Basic: Story = {
   args: {
-    placeholder: '请输入内容',
+    placeholder: '请输入内容a',
     size: 'medium'
   }
 };
