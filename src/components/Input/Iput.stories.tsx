@@ -6,6 +6,11 @@ const meta = {
   title: 'Components/Input',
   component: Input,
   tags: ['autodocs'],// 自动生成文档
+  argTypes: {
+    prefix: { control: {type:'text'} },
+    suffix: { control: {type:'text'} },
+    value: { control: {type:'text'} },
+  },
 } satisfies Meta<typeof Input>;
 
 // export导出meta类型以供Storybook使用
